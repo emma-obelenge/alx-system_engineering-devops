@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-#bash script for printing Best School 20times
+#bash script for printing Best School 10 times with for loop
 
 for i in {1..10}
 do
