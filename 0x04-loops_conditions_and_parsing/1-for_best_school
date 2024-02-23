@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+for i in {1..10}
+do
+	if [ "$i" -le 10 ]
+	then
+		echo "Best School"
+	fi
+done
