@@ -1,0 +1,8 @@
+#! /usr/bin/env bash
+#script for printing filtered ls output
+
+lists=$(ls)
+for list in $lists
+do
+	echo "$list" | cut -d "-" -f 2
+done
