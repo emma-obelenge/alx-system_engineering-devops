@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+#bash script for printing Best School 10 times with until loop
+
+i="1"
+until [ "$i" -gt 10 ]
+do
+	if [ "$i" -le 10 ]
+	then
+		echo "Best School"
+	fi
+	i=$((i + 1))
+done
