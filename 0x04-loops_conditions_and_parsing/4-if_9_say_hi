@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 #bash script for printing Best School 10 times with while loop
 
-i="1"
+i="0"
 while [ "$i" -le 10 ]
 do
 	if [ "$i" -eq 9 ]
