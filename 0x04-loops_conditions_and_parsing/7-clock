@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+#bash script for printing Best School 10 times with while loop
+
+hours=0
+while [ "$hours" -le 12 ]
+do
+	mins=1
+	echo "Hour: $hours"
+	while [ "$mins" -le 59 ]
+	do
+		echo "$mins"
+		mins=$((mins + 1))
+	done
+	hours=$((hours + 1))
+done
