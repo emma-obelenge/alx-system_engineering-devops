@@ -1,21 +1,21 @@
 #!/usr/bin/env bash
 #Script that displays numbers from 1 to 100
 
-i=0
+i=1
 list=()
-while [ $i -lt 20 ]
+while [ $i -le 20 ]
 do
 	if [ $((i % 3)) -eq 0 ] && [ $((i % 5)) -eq 0 ]
 	then
-		list[$i]="FizzBuzz"
+		list[$i - 1]="FizzBuzz"
 	elif [ $((i % 3)) -eq 0 ]
 	then
-		list[$i]="Fizz"
+		list[$i - 1]4="Fizz"
 	elif [ $((i % 5)) -eq 0 ]
 	then
-		list[$i]="Buzz"
+		list[$i- 1]="Buzz"
 	else
-		list[$i]="$i"
+		list[$i -1]="$i"
 	fi
 	i=$((i + 1))
 done
