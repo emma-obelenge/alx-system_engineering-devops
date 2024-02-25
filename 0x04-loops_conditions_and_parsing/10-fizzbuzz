@@ -5,7 +5,7 @@ j=0
 i=1
 list=()
 
-while [ $i -le 20 ]
+while [ $i -le 100 ]
 do
 	if [ $((i % 3)) -eq 0 ] && [ $((i % 5)) -eq 0 ]
 	then
