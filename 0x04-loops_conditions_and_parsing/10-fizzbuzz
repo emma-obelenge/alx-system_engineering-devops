@@ -1,23 +1,26 @@
 #!/usr/bin/env bash
 #Script that displays numbers from 1 to 100
 
+j=0
 i=1
 list=()
+
 while [ $i -le 20 ]
 do
 	if [ $((i % 3)) -eq 0 ] && [ $((i % 5)) -eq 0 ]
 	then
-		list[$i - 1]="FizzBuzz"
+		list[j]="FizzBuzz"
 	elif [ $((i % 3)) -eq 0 ]
 	then
-		list[$i - 1]4="Fizz"
+		list[j]="Fizz"
 	elif [ $((i % 5)) -eq 0 ]
 	then
-		list[$i- 1]="Buzz"
+		list[j]="Buzz"
 	else
-		list[$i -1]="$i"
+		list[j]="$i"
 	fi
 	i=$((i + 1))
+	j=$((j + 1))
 done
 
 for item in "${list[@]}"
