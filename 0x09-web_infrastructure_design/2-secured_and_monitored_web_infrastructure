@@ -1,1 +1,37 @@
-https://imgur.com/a/HrmPoaH
+image link: https://imgur.com/a/HrmPoaH
+
+Task 2 Answers.
+
+Definitions and Explanations:
+
+1. For every additional element, why you are adding it:
+- We've introduced three new components: a firewall for each server to protect against attacks and exploitation, an SSL certificate for server www.foobar.com to enable HTTPS traffic, and three monitoring clients to collect and send logs to our data collector Sumo Logic.
+  
+2. What are firewalls for:
+- Firewalls serve as network security systems that monitor and control incoming and outgoing network traffic based on predefined security rules. They establish a barrier between trusted and untrusted networks, safeguarding servers from unauthorized access and potential threats.
+  
+3. Why is the traffic served over HTTPS:
+- Traffic is served over HTTPS to enhance security. Unlike HTTP, which transfers data in plain text, HTTPS encrypts data, ensuring confidentiality and integrity of transmitted information.
+
+4. What monitoring is used for:
+- Monitoring tools are used to detect and diagnose web application performance issues proactively. They collect logs from various components such as application servers, MySQL databases, and Nginx web servers, providing insight into system events and performance metrics.
+
+
+5. How the monitoring tool is collecting data:
+- Monitoring tools collect data by gathering logs from various components such as application servers, MySQL databases, and Nginx web servers. These logs provide detailed documentation of system events and performance metrics, enabling proactive detection and diagnosis of web application performance issues.
+
+Explain what to do if you want to monitor your web server QPS:
+- To monitor the web server's queries per second (QPS), one can track it at both the network and application levels to ensure optimal performance and identify potential bottlenecks.
+
+
+ISSUES WITH THE INFRASTRUCTURE
+
+A. Why terminating SSL at the load balancer level is an issue:
+- Terminating SSL at the load balancer level poses an issue because decryption is resource-intensive and CPU-heavy. While offloading decryption to the load balancer frees up server processing power for application tasks, it can strain the load balancer's resources and affect overall system performance. Well, I can't really say why for now, still gathering resources on this though.
+
+B. Why having only one MySQL server capable of accepting writes is an issue:
+- Relying on a single MySQL server capable of accepting writes presents an issue because if it goes down, data cannot be added or updated, rendering certain application features non-functional. Implementing redundancy or failover mechanisms can mitigate this risk and ensure continuous data availability.
+
+C. Why having servers with all the same components (database, web server and application server) might be a problem:
+- Having servers with identical components (database, web server, and application server) may lead to a problem where a bug in one component affects all servers.
+
