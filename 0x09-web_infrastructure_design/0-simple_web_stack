@@ -1,1 +1,23 @@
-https://imgur.com/a/65jmndq
+image link: https://imgur.com/a/65jmndq
+
+
+
+Task 0. Answers
+
+Definitions and Descriptions.
+1. What is a server: A server refers to a device, virtual machine, or software program responsible for providing functionality to other programs or devices known as "clients."
+2. What is the purpose of the domain name: The domain name serves as an identifier for Internet resources, including computers, networks, and services, using a text-based label that is easier to remember than numerical IP addresses.
+3. What type of DNS record www is in www.foobar.com: It falls under the 'CNAME' category.
+4. What is the role of the Web Server; The Web Server's role is to store, process, and present website content (codebase) and deliver web pages to users (primarily HTML and CSS) via the HTTP protocol.
+5. What is the role of the application server: The application server's function is to generate dynamic content by executing server-side code such as JSP, Ajax, PHP, etc.
+6. What is the function of the database; The database's role is to systematically and efficiently manage data in a well-organized manner, facilitating easy addition, access, update, management, and deletion of data.
+Issues
+7. What is the server using to communicate with the computer of the user requesting the website: The server communicates using the HTTP protocol.
+
+
+ISSUES WITH THE INFRASTRUCTURE
+A. SPOF (Single Point Of Failure): There are numerous single points of failure, starting from having a single server containing only one web server, application server, and database. A single point of failure refers to a component of a system whose failure would halt the entire system's operation.
+
+B. Downtime during maintenance (such as deploying new code requiring web server restart): The downtime period might exceed expectations due to the server's dependency on a single codebase that is temporarily unavailable. Consequently, users will be unable to access the website and its content, resulting in a poor user experience and loss of traffic.
+
+C. Inability to scale with increased traffic: Directly pointing the domain name to the server without a load balancer makes handling increased loads difficult. This presents a challenge in managing the volume of users attempting to access the website's content and may lead to a degraded user experience or impose a limit on the number of users the website can accommodate.
