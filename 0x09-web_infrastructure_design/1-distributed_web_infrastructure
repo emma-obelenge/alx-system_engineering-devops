@@ -1,1 +1,28 @@
-https://imgur.com/a/aoQXws8
+image link: https://imgur.com/a/aoQXws8
+
+
+Task 1 Answers
+
+Definitions and Explanations:
+1. For every additional element, why you are adding it: We're adding a new server to mitigate the risk of a single point of failure associated with having only one server.
+
+2. What distribution algorithm your load balancer is configured with and how it works: Our load balancer utilizes the Weighted Least Connection algorithm, which assigns incoming requests based on the current number of connections to each server and their respective weights. Servers with fewer active connections and higher weights receive more requests, ensuring efficient utilization of server resources and optimal distribution of workload.
+
+3. Is your load-balancer enabling an Active-Active or Active-Passive setup, explain the difference between both: Our load balancer implements an Active-Active setup where both nodes (servers) are actively running the same service simultaneously. In contrast, an Active-Passive setup involves one active node while the other remains passive or on standby. The key difference lies in performance, with Active-Active providing access to all server resources during normal operation, while Active-Passive utilizes the backup server only during failover.
+
+4. How a database Primary-Replica (Master-Slave) cluster works: Master-slave replication involves replicating data from a master database server to one or more slave servers. Changes made to the master are logged and propagated to the slaves, either synchronously or asynchronously. This setup distributes read access across multiple servers for scalability and can also serve purposes like failover or data analysis on the slave to avoid overloading the master.
+
+5. What is the difference between the Primary node and the Replica node in regard to the application: A replica node serves as a duplicate of the primary node, providing redundant copies of the application codebase to safeguard against hardware failures and enhance capacity for serving read requests such as document retrieval or searches.
+
+
+ISSUES WITH THE INFRASTRUCTURE
+A. SPOF (Single Point Of Failure):
+The infrastructure relies on a single server for hosting the website, which includes the web server, application server, and database. This creates a single point of failure, meaning that if this server goes down due to hardware failure, software issues, or other reasons, the entire website will become unavailable.
+   -To mitigate this risk, it's essential to introduce redundancy by adding additional servers and implementing failover mechanisms. This could involve setting up multiple servers for load balancing, redundancy in database servers (e.g., master-slave replication), and redundant power supplies and network connections.
+
+B. Security Issues:
+- Lack of Firewall: Without a firewall in place, the server is vulnerable to unauthorized access, malicious attacks, and exploitation of software vulnerabilities. A firewall acts as a barrier between the server and external threats, filtering incoming and outgoing network traffic based on predefined security rules.
+- No HTTPS: The absence of HTTPS encryption means that sensitive data transmitted between the server and users, such as login credentials, payment information, and personal details, is susceptible to interception. Implementing HTTPS ensures secure communication by encrypting data exchanged between the server and clients, protecting against man-in-the-middle attacks and data breaches.
+   
+C. No Monitoring:
+- Monitoring is crucial for maintaining the health, performance, and security of the infrastructure. Without monitoring tools and systems in place, it's challenging to detect and respond to issues such as server downtime, performance degradation, security breaches, and abnormal behavior.
