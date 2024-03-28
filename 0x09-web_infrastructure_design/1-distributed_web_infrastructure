@@ -17,8 +17,8 @@ Definitions and Explanations:
 
 ISSUES WITH THE INFRASTRUCTURE
 A. SPOF (Single Point Of Failure):
-The infrastructure relies on a single server for hosting the website, which includes the web server, application server, and database. This creates a single point of failure, meaning that if this server goes down due to hardware failure, software issues, or other reasons, the entire website will become unavailable.
-   -To mitigate this risk, it's essential to introduce redundancy by adding additional servers and implementing failover mechanisms. This could involve setting up multiple servers for load balancing, redundancy in database servers (e.g., master-slave replication), and redundant power supplies and network connections.
+While there are two servers in the infrastructure, the absence of a load balancer means that both servers are not being utilized effectively. This setup still presents a single point of failure because both servers are handling the same workload independently. If one server goes down due to hardware failure, software issues, or other reasons, the entire website will become unavailable, similar to a single server setup.
+Introducing a load balancer would distribute incoming traffic across both servers, ensuring redundancy and mitigating the risk of downtime due to a server failure.
 
 B. Security Issues:
 - Lack of Firewall: Without a firewall in place, the server is vulnerable to unauthorized access, malicious attacks, and exploitation of software vulnerabilities. A firewall acts as a barrier between the server and external threats, filtering incoming and outgoing network traffic based on predefined security rules.
