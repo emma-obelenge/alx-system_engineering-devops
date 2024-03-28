@@ -34,4 +34,3 @@ B. Why having only one MySQL server capable of accepting writes is an issue:
 
 C. Why having servers with all the same components (database, web server and application server) might be a problem:
 - Having servers with identical components (database, web server, and application server) may lead to a problem where a bug in one component affects all servers.
-
