@@ -1,1 +1,13 @@
-https://imgur.com/a/mjlBIgl
+image link: https://imgur.com/a/mjlBIgl
+
+
+Task 3 Answers (Advance Task):
+
+Definitions and Explanations.
+
+1. Purpose of Additional Elements:
+- The addition of one server and one load balancer serves several purposes. By adding the new server, we can separate each component (web server - Nginx, application server - code base, and database - MySQL) onto their own server. This segregation enhances system stability and security by isolating each component's resources and minimizing potential conflicts. Additionally, having an extra server with all components serves as a backup in case of component or server failure, ensuring continuous availability and redundancy.
+
+- Each server is equipped with monitoring capabilities and a firewall to enhance security and facilitate proactive issue detection and mitigation.
+
+- The inclusion of an extra load balancer is aimed at improving the scalability and reliability of the infrastructure. The load balancer assists in distributing incoming traffic across the entire infrastructure, ensuring optimal resource utilization and preventing overloading of individual servers. This helps maintain consistent performance and availability, even during periods of high traffic influx.
