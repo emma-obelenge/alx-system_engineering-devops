@@ -13,6 +13,6 @@ sudo chown -R "$USER":"$USER" /home/ubuntu
 sudo chmod -R 755 /home
 
 # Redirect to /redirect_me to a youtube video
-sed -i '37i\rewrite return 301 https://youtube.com/@emma_obelenge?si=x6uGvH6HZ9hoU-CH;' /etc/nginx/sites-available/default
+sed -i '49i\rewrite return 301 https://youtube.com/@emma_obelenge?si=x6uGvH6HZ9hoU-CH;' /etc/nginx/sites-available/default
 
 service nginx start
