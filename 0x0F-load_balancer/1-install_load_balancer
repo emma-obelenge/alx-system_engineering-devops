@@ -10,7 +10,7 @@ frontend obelenge
 
 backend backend_server
     balance roundrobin
-    server 301399-web-01 34.203.29.82 check
-    server 301399-web-02 100.25.139.67 check " >> /etc/haproxy/haproxy.cfg
+    server 301399-web-01 34.203.29.82:80 check
+    server 301399-web-02 100.25.139.67:80 check " >> /etc/haproxy/haproxy.cfg
 
 sudo service haproxy restart
