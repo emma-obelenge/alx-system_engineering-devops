@@ -4,7 +4,7 @@ apt -y update
 apt install -y nginx
 echo "Hello World!" > /home/ubuntu/index.html
 echo "Ceci n'est pas une page" > /home/ubuntu/404.html
-sed -i '/server_name _/a location /redirect_me { return 301 https://youtube.com/@emma_obelenge?si=x6uGvH6HZ9hoU-CH; }' /etc/nginx/sites-available/default
-sed -i "/server_name _/a add_header X-Served-By \"\$HOSTNAME\";" /etc/nginx/sites-available/default
-sed -i '/server_name _/a error_page 404 /404.html; location = /404.html {root /home/ubuntu/; internal; }' /etc/nginx/sites-available/default
+sed -i '/server_name _/a \\tlocation /redirect_me { return 301 https://youtube.com/@emma_obelenge?si=x6uGvH6HZ9hoU-CH; }' /etc/nginx/sites-available/default
+sed -i '/server_name _/a \\tadd_header X-Served-By \"\$HOSTNAME\";' /etc/nginx/sites-available/default
+sed -i '/server_name _/a \\terror_page 404' /etc/nginx/sites-available/default
 service nginx restart
