@@ -3,14 +3,14 @@
 sudo apt-get -y update
 sudo apt-get install -y haproxy
 echo "
-frontend oscar
+frontend obelenge
     bind *:80
     mode http
-    default_backend backendnodes
+    default_backend backend_server
 
-backend backendnodes
+backend backend_server
     balance roundrobin
-    server 1551-web-01 35.237.181.211 check
-    server 1551-web-02 35.229.39.168  check " >> /etc/haproxy/haproxy.cfg
+    server 301399-web-01 34.203.29.82:80 check
+    server 301399-web-02 100.25.139.67:80 check " >> /etc/haproxy/haproxy.cfg
 
 sudo service haproxy restart
