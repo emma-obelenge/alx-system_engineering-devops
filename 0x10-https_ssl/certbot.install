@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+"""installation of certbot for handling load balancer certification"""
+
+sudo add-apt-repository ppa:certbot/certbot
+sudo apt-get update
+sudo apt-get install certbot
+
+"""obtaining a certificate"""
+sudo service haproxy stop
+sudo certbot certonly --standalone --preferred-challenges http --http-01-port 80 -d www.emmaobelenge.tech
+
+"""using the certificate"""
+sudo mkdir -p /etc/haproxy/certs
+DOMAIN='emmaobelenge.tech' sudo -E bash -c 'cat /etc/letsencrypt/live/$DOMAIN/fullchain.pem /etc/letsencrypt/live/$DOMAIN/privkey.pem > /etc/haproxy/certs/$DOMAIN.pem'
+
+"""securing access to the certificate"""
+sudo chmod -R go-rwx /etc/haproxy/certs
+
+"""updating changes in haproxy config file"""
+sed -i '/global/a \\tmaxconn 2048' /etc/haproxy/haproxy.cfg
+sed -i '/global/a \\ttune.ssl.default-dh=param 2048' /etc/haproxy/haproxy.cfg
+sed -i '/defaults/a \\toption forwardfor' /etc/haproxy/haproxy.cfg
+sed -i '/defaults/a \\toption http-server-close' /etc/haproxy/haproxy.cfg
+sed -i '/defaults/a \\toption forwardfor' /etc/haproxy/haproxy.cfg
+sed -i '/frontend obelenge/a \\tbind haproxy_www_public_IP :80' /etc/haproxy/haproxy.cfg
+sed -i '/frontend obelenge/a \\treqadd X-Forwarded-Proto:\ http' /etc/haproxy/haproxy.cfg
