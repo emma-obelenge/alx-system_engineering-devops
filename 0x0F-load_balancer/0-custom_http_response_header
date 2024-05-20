@@ -2,8 +2,8 @@
 #custom 404 page
 apt -y update
 apt install -y nginx
-echo "Hello World!" > /home/ubuntu/index.html
-echo "Ceci n'est pas une page" > /home/ubuntu/404.html
+echo "Hello World!" > /var/www/html/index.html
+echo "Ceci n'est pas une page" > /var/www/404.html
 sed -i '/server_name _/a \\tlocation /redirect_me { return 301 https://youtube.com/@emma_obelenge?si=x6uGvH6HZ9hoU-CH; }' /etc/nginx/sites-available/default
 sed -i '/server_name _/a \\tadd_header X-Served-By \"\$HOSTNAME\";' /etc/nginx/sites-available/default
 sed -i '/server_name _/a \\terror_page 404' /etc/nginx/sites-available/default
