@@ -13,7 +13,7 @@ sudo chown -R "$USER":"$USER" /var/www/html
 sudo chmod -R 755 /var/www
 
 # Redirect to /redirect_me to a youtube video
-sed -i '49i\\tlocation /redirect_me {return 301 https://youtube.com/@emma_obelenge?si=x6uGvH6HZ9hoU-CH;}'
+sed -i '49i\\tlocation /redirect_me {return 301 https://youtube.com/@emma_obelenge?si=x6uGvH6HZ9hoU-CH;}' /etc/nginx/sites-available/default
 
 # Setup 404 page
 echo "Ceci n'est pas une page\n" | sudo tee /var/www/html/404.html
