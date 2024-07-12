@@ -6,13 +6,13 @@ apt-get -y install nginx
 ufw allow 'Nginx HTTP'
 
 # Override the default index file served as home page
-echo "Holberton School" >> /var/www/html/index.html
+echo "Hello World!" | sudo tee /var/www/html/index.html /etc/nginx/sites-available/default
 
 #Give the user  ownership to website files
 sudo chown -R "$USER":"$USER" /var/www/html
 sudo chmod -R 755 /var/www
 
 # Redirect to /redirect_me to a youtube video
-sed -i '49i\location /redirect_me {return 301 https://youtube.com/@emma_obelenge?si=x6uGvH6HZ9hoU-CH;}
+sed -i '49i\\tlocation /redirect_me {return 301 https://youtube.com/@emma_obelenge?si=x6uGvH6HZ9hoU-CH;}
 
 service nginx start
