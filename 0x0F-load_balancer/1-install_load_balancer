@@ -1,7 +1,7 @@
 i#!/usr/bin/env bash
 # balancer install
-sudo apt-get -y update
-sudo apt-get install -y haproxy
+sudo apt update
+sudo apt install haproxy -y
 echo "
 frontend obelenge
     bind *:80
