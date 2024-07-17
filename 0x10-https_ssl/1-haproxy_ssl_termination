@@ -52,8 +52,7 @@ frontend obelenge-https
 backend backend_server
         redirect scheme https if !{ ssl_fc }
         balance roundrobin
-        server 301399-web-01 35.153.17.101:80 check
-        server 301399-web-02 34.207.58.252:80 check
-
+	server 301399-web-01 35.153.78.102:80 check
+        server 301399-web-02 54.160.91.90:80 check
 backend letsencrypt-backend
         server letsencrypt 127.0.0.1:54321
