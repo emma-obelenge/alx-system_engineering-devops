@@ -14,8 +14,8 @@ if __name__ == '__main__':
     api_url = 'https://jsonplaceholder.typicode.com'
     usr_uri = '{}/users/{}'.format(api_url, employee_id)
     todo_uri = '{}/todos'.format(usr_uri)
-    
-    #file name saving format
+
+    # file name saving format
     file_name = "{}.csv".format(employee_id)
 
     # User Response
