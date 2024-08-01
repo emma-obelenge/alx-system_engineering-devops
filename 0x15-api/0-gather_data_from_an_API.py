@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """Program that uses Employee ID to return information about their TODO list"""
-import sys
 import requests
+import sys
 
 if __name__ == '__main__':
     try:
