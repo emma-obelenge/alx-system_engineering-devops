@@ -4,6 +4,7 @@ import json
 import requests
 import sys
 
+
 def extract_employee_tasks(response, employee):
     """
     Extract all the employee tasks
@@ -24,6 +25,7 @@ def extract_employee_tasks(response, employee):
 
     # Returns the list of tasks
     return employee_tasks
+
 
 if __name__ == '__main__':
     # formating names to API url's, uri's, and filename
