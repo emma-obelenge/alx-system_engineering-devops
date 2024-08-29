@@ -1,0 +1,22 @@
+Postmortem Report: 504 Error While Accessing a URL
+Incident Report for 504 Error/Site Outage
+Summary
+On August 20th, 2024, at midnight, the server experienced an issue that caused a 504 error, which prevented users from accessing the website. The server is based on a LAMP stack.
+Timeline
+00:00 PST - Users began encountering a 500 error when trying to access the website.
+00:05 PST - Verified that Apache and MySQL services were running.
+00:10 PST - Despite the services running, the website failed to load correctly. Background checks confirmed that both the server and the database were operational.
+00:12 PST - Restarted Apache, which returned a 200 status (OK) when the website was curled.
+00:18 PST - Reviewed error logs to determine the cause of the issue.
+00:25 PST - Found that the Apache server was shutting down prematurely, as indicated in /var/log. No PHP error logs were available.
+00:30 PST - Inspected php.ini and discovered that error logging had been disabled. Re-enabled error logging.
+00:32 PST - Restarted Apache and reviewed the newly generated PHP error logs.
+00:36 PST - Identified a mistyped filename in the PHP logs that was causing the server to shut down prematurely.
+00:38 PST - Corrected the filename and restarted Apache.
+00:40 PST - The server and website returned to normal operation.
+Root Cause and Resolution
+The issue was due to an incorrect filename in the wp-settings.php file, which led to a 500 error when curling the server. Initially, the PHP error logs were unavailable because error logging was disabled in php.ini. After enabling logging, the logs revealed that the incorrect .phpp file extension was causing the server to malfunction. Correcting the filename fixed the error, and the solution was deployed across other servers using Puppet. Restarting the servers restored normal functionality.
+Corrective and Preventive Measures
+Enable error logging on all servers and sites to ensure quick diagnosis of any issues.
+Perform local testing on all servers and sites before deploying them in a multi-server environment to minimise the risk of errors during live deployment.
+
